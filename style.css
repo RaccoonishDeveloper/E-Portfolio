@@ -1,0 +1,532 @@
+/* -----------Global Styles-----------*/
+:root {
+  /*pseudo-class selector that targets the root element of the document, which is typically the <html> */
+  --bg-body: hsl(0, 0%, 8%);
+  /* color for body */
+  --bg-contact: hsl(0, 0%, 14%);
+  /* color for contact container at the bottom */
+  --accent: hsl(153, 71%, 59%);
+  /* color for the green accent under the name, contact button and send message */
+  --small-text: hsl(0, 0%, 85%);
+  /* color for the small text IE (html, css, js) */
+  --big-text: hsl(0, 0%, 100%);
+  /* color for the big text IE(PROJECTS) */
+  --invalid: hsl(7, 100%, 68%);
+  /* color for the invalid message and bar border */
+  --fs-body: 1.125rem;
+  /* body text size (can be considered small) 18px */
+  --fs-xl-heading: 5.5rem;
+  /* xl heading text size 88px */
+  --fs-72: 4.5rem;
+  /* 72px */
+  --fs-l-heading: 3rem;
+  /* large heading text size 48px */
+  --fs-40: 2.5rem;
+  /* 40px */
+  --fs-36: 2.25rem;
+  /* 36px */
+  --fs-32: 2rem;
+  /* 32px */
+  --fs-m-heading: 1.5rem;
+  /* medium heading text size 24px */
+  --fs-20: 1.25rem;
+  /* 20px */
+
+  --container: 69.375rem;
+  /*container variable containing max width */
+  --transition: 300ms ease-in-out;
+}
+
+
+
+html {
+  /* html element */
+  box-sizing: border-box;
+  /* sets the box-sizing property of the html element to borderbox (determines how the width and height of an element are calculated and includes any padding and border within the specified width and height) */
+  font-size: 100%;
+  /*sets the font-size property of the html element to 100% (specifies the size of the font used for the content within the element) */
+}
+
+*,
+/* wildcard / asterisk targets all elements in the document. */
+*::before,
+/* target the ::before pseudo-elements of all elements in the document  */
+*::after {
+  /*target the ::after pseudo-elements of all elements in the document */
+  /*Pseudo-elements allow you to insert content before or after the content of an element. */
+  box-sizing: inherit;
+  /*sets the box-sizing property of the selected elements to inherit, inherit value means that the box-sizing property will inherit the value from its parent element ( in this case being html{})*/
+  /*The purpose of applying box-sizing: inherit to all elements and their pseudo-elements is to ensure consistent box-sizing behavior throughout the document. */
+}
+
+body {
+  /*sets styles for the body element. */
+  margin: 0;
+  /* This rule sets the margin of the body element to 0, removing any default margin that might be applied by the browser.(starts top-left corner of the page)  */
+  font-family: "Space Grotesk", sans-serif;
+  /*sets the font family to to "Space Grotesk", . If "Space Grotesk" is not available, it falls back to the browser's default sans-serif font. */
+  background-color: var(--bg-body);
+  /*sets the background-color property of the body element to var(--bg-body).  */
+  color: var(--big-text);
+  /*sets the color property of the body element to var(--big-text) */
+  font-size: var(--fs-body);
+  /*sets the font-size property of the body element to var(--fs-body). */
+  /*this practice allows for consistent sizing across the document. */
+  line-height: 1.56;
+  /*sets the line-height property of the body element to 1.56 (times of the font-size, in this case). It determines the height of each line of text within the body*/
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Crect fill='%23141414' width='800' height='800'/%3E%3Cg fill='none' stroke='%234A4A4A' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%238E8E8E'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+
+
+
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+/* removes the top margin from the elements listed above*/
+
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+/* results in tightly spaced lines of text for the h1,h2 and h3 elements */
+
+
+h1 {
+  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 0.7rem + 7.68vw, 5.5rem);
+  letter-spacing: -0.02841em;
+  /* -2.5px */
+  line-height: 1.1;
+}
+
+
+
+
+
+
+p {
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.79rem + 0.89vw, 1.125rem);
+  line-height: 1.5;
+  color: var(--small-text);
+}
+
+a {
+  display: inline-block;
+}
+
+/* allowing multiple elements with that class to appear horizontally on the same line,
+ as long as there is enough horizontal space available. */
+
+a.underline {
+  /* helper class to style links */
+  display: inline-block;
+  padding-bottom: 0.625rem;
+  font-size: 1rem;
+  /* sets the font size of the a elements to 1rem, which is equivalent to the root font size. */
+  line-height: 1.625;
+  /* sets the line height of the a elements to 1.625 times the font size. This value controls the vertical spacing between lines of text. */
+  letter-spacing: 0.143em;
+  /* sets the spacing between letters in the a elements to 2.29 pixels. */
+  font-weight: 700;
+  /* sets the font weight of the a elements to 700, which is commonly used for bold text. */
+  text-transform: uppercase;
+  /* transforms the text in the a elements to uppercase, making all letters appear in uppercase regardless of their original case. */
+  color: var(--text1);
+  text-decoration: none;
+  background-image: linear-gradient(to right,
+      var(--accent) 75%,
+      var(--accent) 75%);
+  background-position: 0 2.1em;
+  /* it positions the background 0 pixels from the left and 1em from the top of the span element. */
+  background-repeat: repeat-x;
+  /* specifies that the background image should repeat horizontally (repeat-x) along the x-axis. */
+  background-size: 8px 2px;
+  /* sets the size of the background image. The image is 8 pixels wide and 2 pixels high. */
+}
+
+
+a:hover {
+  color: var(--accent);
+}
+
+/* turns all <a> elements green on hover, used for the contact me underline and header name. */
+
+.wrapper {
+  /* Basically a container, named wrapper because CSS has container queries so named this way in order not to conflict. */
+  width: calc(100% - 2rem);
+  /* Sets the width of the element to occupy the full width of its container. */
+  max-width: var(--container);
+  /* Sets the maximum width of the element to the value of a CSS variable. */
+  margin-inline: auto;
+  /* Centers the element horizontally by setting automatic margins on the left and right sides. */
+}
+
+/* tablet styles */
+@media (min-width: 48em) {
+
+  /* changed from 37.5em */
+  /* media query targeting devices with a minimum width of 600 pixels (37.5 em).*/
+  .wrapper {
+    width: calc(100% - 3.75rem);
+    /* a rule that modifies the width of elements with the class ".wrapper". This rule sets the width of elements with the class ".wrapper" to be the calculated value of "100% - 3.75rem". */
+    /* elements will be slightly smaller than 100% to accommodate a 3.75 rem margin or padding that might be present on the element. */
+  }
+
+  /* 48em is 600px, its better to use ems for accessability, because using pixels in your media queries will make the break points happen at different times
+   when you may not want them to, if you change the browser base font size. */
+}
+
+/* --------------------------------- */
+
+
+/* ----------- HEADER ----------- */
+.header {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+/* adds a margin of 20px to the top of the page */
+
+.header__home:hover {
+  color: var(--accent);
+}
+
+/* makes the name in the header "Johnuziel" turn green on hover */
+
+.header__home {
+  transition: color var(--transition)
+}
+
+/* applies a transition effect to the top icons which affects color of the text,
+as well as an ease-in-out timing function with a 250ms duration in which the animation starts slowly, accelerates in the middle, and slows down again at the end. */
+
+.header__nav {
+  display: flex;
+  /* establishes a flex container */
+  flex-wrap: wrap;
+  /* allows flex items to wrap onto multiple lines if they exceed the available width of the container. */
+  justify-content: center;
+  /* horizontally centers the flex items within the flex container along the main axis. */
+  text-align: center;
+  /* centers the text content of the flex items within each item's box along the horizontal axis. */
+  gap: 20px 25px;
+  /*first number is for row gap, second number is for column gap. 2 lines of code in 1 this way. */
+}
+
+.header__home {
+  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 1.02rem + 2.04vw, 2rem);
+  /* the clamp() function to create a fluid font size. It specifies a minimum font size of 1.5rem, a maximum font size of 2rem, and a formula for the font size between those values. */
+  /* using Fluid Typography Calculator to calculate the clamp function with parameters of (24px min, 32px max, 375px min port, 768px max port) */
+  line-height: 1;
+  color: var(--big-text);
+  text-decoration: none;
+  flex: 1 0 100%;
+  /* flex-grow: 1; flex-shrink: 0; flex-basis: 100%; */
+}
+
+/* -----------TOP ICONS----------- */
+
+.top__icons {
+  opacity: 0.5;
+}
+
+.top__icons:hover {
+  opacity: 1;
+}
+
+/* gives the icons a glow effect when you hover on them */
+
+.top__icons {
+  transition: opacity var(--transition);
+  /* applies a transition effect to the top icons which affects opacity (the transparency of an element),
+ as well as an ease-in-out timing function with a 250ms duration in which the animation starts slowly, accelerates in the middle, and slows down again at the end. */
+  text-decoration: none;
+  /* disables the link remenants under the icons */
+}
+
+.top__icons img {
+  display: block;
+}
+
+/* fixes the gap under the icons which occured due to using inline-block */
+
+
+
+/* --------------------------------- */
+
+
+/* -----------Tablet Header----------- */
+@media (min-width: 48em) {
+  /* changed from 37.5em */
+
+  .header {
+    margin-top: 30px;
+    /* margin-bottom: 90px; */
+  }
+
+  .header__nav {
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    gap: 32px;
+  }
+
+  /*  applies these rules to devices with a minimum width of 48em(600px), which is basically for anything that isnt a mobile phone.
+  we can use this to make for example the gap between the icons different on mobile and on desktop/tablet */
+
+  .header__home {
+    flex: 0 1 auto;
+    /* flex element wont grow (flex-grow: 0), it can shrink if needed (flex-shrink: 1),  the initial size is determined based on its content (flex-basis: auto). */
+    margin-inline-end: auto;
+    /*his property is used to push the element to the end of the flex container. By setting it to auto, it allows the element to take up the remaining space in the container.*/
+    display: block;
+    /*specifies that the element should be displayed as a block-level element.*/
+  }
+
+
+}
+
+/* --------------------------------- */
+
+
+/* ----------- Desktop Header ----------- */
+@media (min-width: 62.5em) {
+  .header {
+    margin-top: 40px;
+    margin-bottom: 127px;
+  }
+
+  .header__nav {
+    padding-right: 30px;
+  }
+
+}
+
+/* --------------------------------- */
+
+
+/*-----------ACCESSABILITY----------- */
+.visually-hidden {
+  /* a class that is commonly used to visually hide an element while keeping it accessible for screen readers and other assistive technologies. */
+  position: absolute;
+  /* Sets the element's position to be absolute, meaning it is positioned relative to its nearest positioned ancestor. */
+  left: -10000px;
+  /* Moves the element 10,000 pixels to the left of its normal position.  */
+  top: auto;
+  /*Resets the top property to its default value, which is auto. This ensures that the vertical position of the element is determined by its normal flow in the document. */
+  width: 1px;
+  /* Sets the width of the element to 1 pixel. */
+  height: 1px;
+  /* Sets the height of the element to 1 pixel. */
+  overflow: hidden;
+  /* Hides any content that exceeds the defined width and height of the element.  */
+}
+
+/* --------------------------------- */
+
+
+
+/* ----------- HERO -----------*/
+
+.hero__wrapper {
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--small-text);
+}
+
+.hero__image {
+  position: absolute;
+  /* positions the element absolutely within its closest positioned ancestor */
+  top: 0;
+  /* positions the top edge of the element at the top of its containing block. */
+  left: 50%;
+  /* positions the left edge of the element at the horizontal center of its containing block.*/
+  translate: -50%;
+  /* moves the element back horizontally by 50% of its own width, effectively centering it horizontally. */
+  margin-top: 3rem;
+  /* adds a margin of 3rem on the top of the element, creating a space between the top of the containing block and the element. */
+  display: block;
+  /* ensures that the element is displayed as a block-level element, which means it will occupy its own line and respect properties like width and height.*/
+  width: 174px;
+  /* 10.875rem */
+  height: auto;
+}
+
+.hero__text {
+  position: relative;
+  text-align: center;
+  margin-top: 383px;
+  /* 343 px to get under the outline and another 40 gap is around 23.125rem, rounded down to 23rem. */
+}
+
+h1>span {
+  background-image: linear-gradient(to right,
+      var(--accent) 75%,
+      var(--accent) 75%);
+  background-position: 0 1em;
+  /* it positions the background 0 pixels from the left and 1em from the top of the span element. */
+  background-repeat: repeat-x;
+  /* specifies that the background image should repeat horizontally (repeat-x) along the x-axis. */
+  background-size: 8px 4px;
+  /* sets the size of the background image. The image is 8 pixels wide and 4 pixels high. */
+}
+
+/* sets the underline under "John Uziel" */
+
+.hero__headline {
+  margin-bottom: 24px;
+}
+
+
+
+.hero__headline>br {
+  display: none;
+}
+
+.hero__description {
+  margin-bottom: 24px;
+}
+
+
+/* ----------- Tablet Hero ----------- */
+@media (min-width: 48em) {
+
+  /* changed from 37.5em */
+  /* tablet hero media query */
+  .hero {
+    position: relative;
+    margin-top: -62px;
+  }
+
+  .hero__wrapper {
+    padding-bottom: 60px;
+  }
+
+  .hero__content {
+    display: flex;
+    align-items: center;
+  }
+
+  .hero__image {
+    position: relative;
+    width: 42vw;
+    max-width: 445px;
+    height: auto;
+    left: auto;
+    right: 0;
+    translate: 0;
+    margin-top: 0;
+  }
+
+  .hero__text {
+    margin-top: 90px;
+    margin-right: -30px;
+    flex: 1 0 58vw;
+    text-align: left;
+    z-index: 1;
+  }
+
+  .hero__headline {
+    margin-bottom: 60px;
+  }
+
+  .hero__headline>br {
+    display: inline-block;
+  }
+
+  .hero__description {
+    margin-bottom: 34px;
+  }
+
+
+}
+
+/* --------------------------------- */
+
+/* ----------- Desktop Hero ----------- */
+@media (min-width: 62.5em) {
+  /* desktop hero media query */
+
+  .hero {
+    margin-top: 0px;
+  }
+
+  .hero__wrapper {
+    position: relative;
+    padding-bottom: 100px;
+  }
+
+  .hero__content {
+    align-items: flex-start;
+  }
+
+  .hero__content picture {
+    margin-left: -80px;
+  }
+
+  .hero__image {
+    margin-top: -199px;
+  }
+
+  .hero__text {
+    margin-top: 0;
+    margin-right: 0;
+    flex: 1;
+  }
+
+  .hero__headline {
+    margin-bottom: 43px;
+  }
+
+  .hero__headline>br {
+    display: none;
+  }
+
+  .hero__description {
+    width: 39ch;
+    margin-bottom: 66px;
+  }
+}
+
+/* --------------------------------- */
+
+
+/* ----------- SKILLS ----------- */
+
+.skills {}
+
+.skills__wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* sets a single column with a fractional unit (fr).
+   The 1fr value means the column will take up an equal portion of the available space within the grid container.
+    This allows the column to expand and contract based on the available space. */
+  gap: 25px;
+  padding-block: 40px;
+}
+
+.skill__item {
+  text-align: center;
+}
+
+.skill__title {}
+
+.skill__description {}
+
+
+
+
+
+
+/* --------------------------------- */
