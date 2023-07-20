@@ -812,6 +812,10 @@ h1>span {
   justify-content: flex-end;
 }
 
+.contact__content input:focus,
+.contact__content textarea:focus {
+  border-bottom: 1px solid var(--accent)
+}
 
 /* makes the border bottom green while in an active state */
 
