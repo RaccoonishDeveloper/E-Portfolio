@@ -37,7 +37,13 @@
   --transition: 300ms ease-in-out;
 }
 
-
+body,
+input,
+textarea,
+button {
+  font-family: 'Space Grotesk', sans-serif;
+  /* font-family was being set to monospace / Arial instead of the body's for some reason */
+}
 
 html {
   /* html element */
@@ -77,15 +83,15 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Crect fill='%23141414' width='800' height='800'/%3E%3Cg fill='none' stroke='%234A4A4A' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%238E8E8E'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-
-
-
+.footer__bg {
+  background-color: var(--bg-contact);
+}
 
 h1,
 h2,
 h3,
 p {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 /* removes the top margin from the elements listed above*/
@@ -100,9 +106,10 @@ h3 {
 /* results in tightly spaced lines of text for the h1,h2 and h3 elements */
 
 
-h1 {
+.xl__header {
   font-size: 2.5rem;
-  font-size: clamp(2.5rem, 0.7rem + 7.68vw, 5.5rem);
+  font-size: clamp(2.5rem, 1.09rem + 7.06vw, 5.5rem);
+  /* clamp function with parameters of (40px min, 88px max, 320px min port, 1000px max port) */
   letter-spacing: -0.02841em;
   /* -2.5px */
   line-height: 1.1;
@@ -115,7 +122,8 @@ h1 {
 
 p {
   font-size: 1rem;
-  font-size: clamp(1rem, 0.79rem + 0.89vw, 1.125rem);
+  font-size: clamp(1rem, 0.9109rem + 0.4464vw, 1.125rem);
+  /* clamp function with parameters of (16px min, 18px max, 320px min port, 768px max port) */
   line-height: 1.5;
   color: var(--small-text);
 }
@@ -127,7 +135,8 @@ a {
 /* allowing multiple elements with that class to appear horizontally on the same line,
  as long as there is enough horizontal space available. */
 
-a.underline {
+a.underline,
+button {
   /* helper class to style links */
   display: inline-block;
   padding-bottom: 0.625rem;
@@ -152,6 +161,7 @@ a.underline {
   /* specifies that the background image should repeat horizontally (repeat-x) along the x-axis. */
   background-size: 8px 2px;
   /* sets the size of the background image. The image is 8 pixels wide and 2 pixels high. */
+  transition: color var(--transition)
 }
 
 
@@ -171,10 +181,10 @@ a:hover {
   /* Centers the element horizontally by setting automatic margins on the left and right sides. */
 }
 
-/* tablet styles */
+
 @media (min-width: 48em) {
 
-  /* changed from 37.5em */
+  /* Tablet media query*/
   /* media query targeting devices with a minimum width of 600 pixels (37.5 em).*/
   .wrapper {
     width: calc(100% - 3.75rem);
@@ -188,12 +198,15 @@ a:hover {
 
 /* --------------------------------- */
 
+.section__border {
+  border-bottom: 1px solid var(--small-text);
+}
 
 /* ----------- HEADER ----------- */
 .header {
   position: relative;
   z-index: 1;
-  margin-top: 20px;
+  margin-block-start: 20px;
 }
 
 /* adds a margin of 20px to the top of the page */
@@ -226,9 +239,9 @@ as well as an ease-in-out timing function with a 250ms duration in which the ani
 
 .header__home {
   font-size: 1.5rem;
-  font-size: clamp(1.5rem, 1.02rem + 2.04vw, 2rem);
+  font-size: clamp(1.5rem, 1.143rem + 1.786vw, 2rem);
   /* the clamp() function to create a fluid font size. It specifies a minimum font size of 1.5rem, a maximum font size of 2rem, and a formula for the font size between those values. */
-  /* using Fluid Typography Calculator to calculate the clamp function with parameters of (24px min, 32px max, 375px min port, 768px max port) */
+  /* using Fluid Typography Calculator to calculate the clamp function with parameters of (24px min, 32px max, 320px min port, 768px max port) */
   line-height: 1;
   color: var(--big-text);
   text-decoration: none;
@@ -269,11 +282,11 @@ as well as an ease-in-out timing function with a 250ms duration in which the ani
 
 /* -----------Tablet Header----------- */
 @media (min-width: 48em) {
-  /* changed from 37.5em */
+  /* Tablet header media query */
 
   .header {
-    margin-top: 30px;
-    /* margin-bottom: 90px; */
+    margin-block-start: 30px;
+
   }
 
   .header__nav {
@@ -284,7 +297,7 @@ as well as an ease-in-out timing function with a 250ms duration in which the ani
   }
 
   /*  applies these rules to devices with a minimum width of 48em(600px), which is basically for anything that isnt a mobile phone.
-  we can use this to make for example the gap between the icons different on mobile and on desktop/tablet */
+  we can use this to make for example the gap between the icons different on mobile and on Desktop/Tablet */
 
   .header__home {
     flex: 0 1 auto;
@@ -304,8 +317,8 @@ as well as an ease-in-out timing function with a 250ms duration in which the ani
 /* ----------- Desktop Header ----------- */
 @media (min-width: 62.5em) {
   .header {
-    margin-top: 40px;
-    margin-bottom: 127px;
+    margin-block-start: 40px;
+    margin-block-end: 127px;
   }
 
   .header__nav {
@@ -342,7 +355,7 @@ as well as an ease-in-out timing function with a 250ms duration in which the ani
 
 .hero__wrapper {
   padding-bottom: 80px;
-  border-bottom: 1px solid var(--small-text);
+
 }
 
 .hero__image {
@@ -354,7 +367,7 @@ as well as an ease-in-out timing function with a 250ms duration in which the ani
   /* positions the left edge of the element at the horizontal center of its containing block.*/
   translate: -50%;
   /* moves the element back horizontally by 50% of its own width, effectively centering it horizontally. */
-  margin-top: 3rem;
+  margin-block-start: 3.5rem;
   /* adds a margin of 3rem on the top of the element, creating a space between the top of the containing block and the element. */
   display: block;
   /* ensures that the element is displayed as a block-level element, which means it will occupy its own line and respect properties like width and height.*/
@@ -366,7 +379,7 @@ as well as an ease-in-out timing function with a 250ms duration in which the ani
 .hero__text {
   position: relative;
   text-align: center;
-  margin-top: 383px;
+  margin-block-start: 383px;
   /* 343 px to get under the outline and another 40 gap is around 23.125rem, rounded down to 23rem. */
 }
 
@@ -385,7 +398,7 @@ h1>span {
 /* sets the underline under "John Uziel" */
 
 .hero__headline {
-  margin-bottom: 24px;
+  margin-block-end: 24px;
 }
 
 
@@ -395,18 +408,17 @@ h1>span {
 }
 
 .hero__description {
-  margin-bottom: 24px;
+  margin-block-end: 24px;
 }
 
 
 /* ----------- Tablet Hero ----------- */
 @media (min-width: 48em) {
+  /* Tablet hero media query */
 
-  /* changed from 37.5em */
-  /* tablet hero media query */
   .hero {
     position: relative;
-    margin-top: -62px;
+    margin-block-start: -62px;
   }
 
   .hero__wrapper {
@@ -426,11 +438,11 @@ h1>span {
     left: auto;
     right: 0;
     translate: 0;
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   .hero__text {
-    margin-top: 90px;
+    margin-block-start: 90px;
     margin-right: -30px;
     flex: 1 0 58vw;
     text-align: left;
@@ -438,7 +450,7 @@ h1>span {
   }
 
   .hero__headline {
-    margin-bottom: 60px;
+    margin-block-end: 60px;
   }
 
   .hero__headline>br {
@@ -446,7 +458,7 @@ h1>span {
   }
 
   .hero__description {
-    margin-bottom: 34px;
+    margin-block-end: 34px;
   }
 
 
@@ -456,10 +468,10 @@ h1>span {
 
 /* ----------- Desktop Hero ----------- */
 @media (min-width: 62.5em) {
-  /* desktop hero media query */
+  /* Desktop hero media query */
 
   .hero {
-    margin-top: 0px;
+    margin-block-start: 0;
   }
 
   .hero__wrapper {
@@ -476,17 +488,17 @@ h1>span {
   }
 
   .hero__image {
-    margin-top: -199px;
+    margin-block-start: -199px;
   }
 
   .hero__text {
-    margin-top: 0;
+    margin-block-start: 0;
     margin-right: 0;
     flex: 1;
   }
 
   .hero__headline {
-    margin-bottom: 43px;
+    margin-block-end: 43px;
   }
 
   .hero__headline>br {
@@ -495,7 +507,7 @@ h1>span {
 
   .hero__description {
     width: 39ch;
-    margin-bottom: 66px;
+    margin-block-end: 66px;
   }
 }
 
@@ -504,7 +516,6 @@ h1>span {
 
 /* ----------- SKILLS ----------- */
 
-.skills {}
 
 .skills__wrapper {
   display: grid;
@@ -512,7 +523,7 @@ h1>span {
   /* sets a single column with a fractional unit (fr).
    The 1fr value means the column will take up an equal portion of the available space within the grid container.
     This allows the column to expand and contract based on the available space. */
-  gap: 25px;
+  gap: 24px;
   padding-block: 40px;
 }
 
@@ -520,13 +531,363 @@ h1>span {
   text-align: center;
 }
 
-.skill__title {}
+.skill__title {
+  font-size: 2rem;
+  font-size: clamp(2rem, 1.04rem + 4.07vw, 3rem);
+  /* clamp function with parameters of (32px min, 48px max, 375px min port, 768px max port) */
+  line-height: 1.17;
+  margin-block-end: 2px;
+}
 
-.skill__description {}
+.skill__description {
+  margin-block-end: 0;
+}
 
 
 
+@media (min-width: 48em) {
+  /* Tablet hero media query*/
 
+  .skills {
+    padding-block-end: 100px;
+  }
+
+  .skills__wrapper {
+    grid-template-columns: 1fr 1fr;
+    /* 50% 50% */
+    border: none;
+    gap: 52px;
+    padding-block: 0;
+    padding-block-start: 52px;
+    /* shorthand property for setting the padding values top and bottom */
+  }
+
+  .skill__item {
+    text-align: left;
+  }
+}
+
+@media (min-width: 62.5em) {
+  /* Desktop hero media query */
+
+  .skills {
+    padding-block-end: 140px;
+  }
+
+  .skills__wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    /* 33% 33% 33% */
+    gap: 58px;
+    /* padding-block-start: 72px; */
+  }
+}
 
 
 /* --------------------------------- */
+
+
+/* ----------- PROJECTS ----------- */
+
+.projects__wrapper {
+  padding-block: 80px;
+}
+
+.title__container {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.projects__title {
+  margin-block-end: 0;
+  /* removes margin from past styles */
+  line-height: 1;
+  letter-spacing: -0.07125em;
+}
+
+
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  justify-items: center;
+
+}
+
+.project__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.in-use {
+  opacity: 1;
+}
+
+.not-used {
+  opacity: 0.5;
+}
+
+/* setting lower opacity for placeholder images */
+
+.project__name {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-block-end: 7px;
+  margin-block-start: 20px;
+}
+
+.project__tags {
+  display: flex;
+  gap: 18px;
+  margin-block-end: 20px;
+  font-size: 16px;
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+@media (min-width: 48em) {
+
+  /* Tablet projects media query */
+
+  .projects__wrapper {
+    padding-block: 0;
+    margin-block-end: 100px;
+  }
+
+  .projects__title {
+    margin-block-end: 0;
+    letter-spacing: -0.128125rem;
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 24px;
+    /* row / column */
+  }
+}
+
+@media (min-width: 62.5em) {
+  /* Desktop projects media query */
+
+  .projects__title {
+    letter-spacing: -0.15625rem;
+  }
+
+  .projects__grid {
+    gap: 69px 30px;
+    /* row / column */
+  }
+
+  /* HARDEST PART YET*/
+
+  .project__item {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .project__picture {
+    position: relative;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+
+
+  .project__picture::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: hsl(0, 0%, 0%);
+    opacity: 0;
+    transition: opacity 400ms ease-in-out;
+  }
+
+  .project__item:hover .project__picture::after {
+    opacity: 0.5;
+  }
+
+  .project__item:hover .project__links {
+    opacity: 1;
+  }
+
+  .project__item:focus-within .project__links {
+    opacity: 1;
+  }
+
+  .project__item:focus-within .project__picture::after {
+    opacity: 0.5;
+  }
+
+  .project__links {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-self: center;
+    align-self: center;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 400ms ease-in-out;
+  }
+
+  .project__links:hover~.project__picture::after {
+    opacity: 0.5;
+  }
+}
+
+/* --------------------------------- */
+
+
+/* ----------- Contact ----------- */
+
+.contact__wrapper {
+  padding-block: 60px 71px;
+  /* top / bottom */
+}
+
+.contact__text {
+  text-align: center;
+}
+
+.contact__title {
+  margin-block-end: 20px;
+  line-height: 1;
+}
+
+.contact__description {
+  margin-block-end: 34px;
+}
+
+.contact__content {
+  margin-block-end: 16px;
+}
+
+.contact__content input,
+.contact__content textarea {
+  width: 100%;
+  padding-block: 16px;
+  padding-inline-start: 16px;
+  background-color: transparent;
+  color: var(--big-text);
+  font-size: 1rem;
+  line-height: 1.625;
+  border: none;
+  border-bottom: 1px solid var(--big-text);
+  outline: none;
+}
+
+.contact__content>*::placeholder {
+  /* targets the placeholder text of all the child elements inside contact__content */
+  color: var(--big-text);
+  /* sets color to white */
+  opacity: 0.5;
+  /* opacity to 50% */
+  text-transform: uppercase;
+  /* makes all placeholder text uppercase */
+}
+
+.contact__content textarea {
+  margin-block-end: 16px;
+}
+
+.contact__content button {
+  background-color: transparent;
+  border: none;
+}
+
+.button-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/* makes the border bottom green while in an active state */
+
+
+/* ----------------- contact format checker ----------------- */
+
+
+.contact__content {
+  position: relative;
+}
+
+.contact__content.success .form__input {
+  border-bottom: 1px solid var(--accent)
+}
+
+.contact__content.error .form__input {
+  border-bottom: 1px solid var(--invalid)
+}
+
+.contact__content.error .form__small {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --------------------------------- */
+
+@media (min-width: 48em) {
+  .contact__wrapper {
+    padding-block: 60px 76px;
+  }
+
+  @media (min-width: 62.5em) {
+    .contact__wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 27.8rem);
+      justify-content: space-between;
+      padding-block: 84px 76px;
+    }
+
+    .contact__title {
+      margin-block-end: 36px
+    }
+
+  }
+}
+
+
+
+
+/* 999.98px */
+@media (max-width: 62.49875em) {
+  .contact__wrapper {
+    max-width: 20rem;
+    max-width: clamp(20rem, 14.42rem + 27.9vw, 27.8125rem);
+    /* min size - 320px , max size - 445px, min vp - 320px, max vp - 768px */
+  }
+
+  .contact__text {
+    text-align: center;
+  }
+}
+
+/* --------------------------------- */
+
+footer {
+  padding-block: 40px 60px;
+}
+
+@media (min-width: 48em) {
+  footer {
+    padding-block: 30px 40px;
+  }
+}
+
+@media (min-width: 62.5em) {
+  footer {
+    padding-block: 47px 92px;
+  }
+}
