@@ -347,6 +347,7 @@ as well as an ease-in-out timing function with a 250ms duration in which the ani
   /* Hides any content that exceeds the defined width and height of the element.  */
 }
 
+
 /* --------------------------------- */
 
 
@@ -798,9 +799,7 @@ h1>span {
   /* makes all placeholder text uppercase */
 }
 
-.contact__content textarea {
-  margin-block-end: 16px;
-}
+
 
 .contact__content button {
   background-color: transparent;
@@ -810,8 +809,38 @@ h1>span {
 .button-align {
   display: flex;
   justify-content: flex-end;
+  margin-block-start: 16px;
 }
 
+.form__small {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--invalid);
+  padding-top: 5px;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.form__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: none;
+  margin: none;
+  outline: none;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* get outa here label */
+
+
+
+/* ----------------- contact format checker ----------------- */
 .contact__content input:focus,
 .contact__content textarea:focus {
   border-bottom: 1px solid var(--accent)
@@ -819,26 +848,28 @@ h1>span {
 
 /* makes the border bottom green while in an active state */
 
-
-/* ----------------- contact format checker ----------------- */
-
-
 .contact__content {
   position: relative;
 }
 
 .contact__content.success .form__input {
   border-bottom: 1px solid var(--accent)
+    /* valid */
 }
 
 .contact__content.error .form__input {
   border-bottom: 1px solid var(--invalid)
+    /* invalid */
 }
 
 .contact__content.error .form__small {
   opacity: 1;
   visibility: visible;
 }
+
+/* makes the error visible */
+
+
 
 /* --------------------------------- */
 

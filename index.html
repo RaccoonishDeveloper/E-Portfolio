@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="style.css" />
     <!-- this link element is sed to include an external CSS file named "style.css" in your HTML document.  -->
     <script defer src="app.js"></script>
+    <!-- The defer attribute allows the HTML parsing and rendering to continue while the script is being loaded, and the script will execute in the order they appear in the HTML. -->
 
     <title>My Website</title>
     <!-- just the title in the browser -->
@@ -386,23 +387,44 @@
           </div>
           <form action="" method="get" class="contact__form" id="contactForm">
             <div class="contact__content">
-              <label for="name" class="visually-hidden">Name</label>
-              <input type="text" name="name" placeholder="NAME" id="name" />
+              <label for="name" class="form__label">Name</label>
+              <input
+                class="form__input"
+                type="text"
+                name="name"
+                placeholder="NAME"
+                id="name"
+                autocomplete="name"
+              />
+              <small class="form__small">Error message</small>
             </div>
+            <!-- name -->
             <div class="contact__content">
-              <label for="email" class="visually-hidden">Email </label>
-              <input type="email" name="email" placeholder="EMAIL" id="email" />
+              <label for="email" class="form__label">Email </label>
+              <input
+                class="form__input"
+                type="email"
+                name="email"
+                placeholder="EMAIL"
+                id="email"
+                autocomplete="email"
+              />
+              <small class="form__small">Error message</small>
             </div>
+            <!-- email -->
             <div class="contact__content">
-              <label for="message" class="visually-hidden">Message</label>
+              <label for="message" class="form__label">Message</label>
               <textarea
+                class="form__input"
                 name="message"
                 id="message"
                 placeholder="MESSAGE"
               ></textarea>
+              <small class="form__small">Error message</small>
             </div>
+            <!-- message -->
             <div class="contact__content button-align">
-              <button type="submit">Send Message</button>
+              <button type="submit" class="form__message">Send Message</button>
             </div>
           </form>
         </div>
