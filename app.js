@@ -11,17 +11,17 @@ const errorMessage = "Sorry, invalid format here";
 // Set of functions related to form validation
 
 // Function to display error message and apply error class
-function showError(input, message) {
-  const formGroup = input.parentElement; // Get the parent element of the input field
-  formGroup.className = "contact__content error"; // Apply the error class
-  const small = formGroup.querySelector("small"); // Get the small element for displaying error message
-  small.innerText = message; // Set the error message
+function showError(input, inputError) {
+  const parentElement = input.parentElement; // Get the parent element of the input field
+  parentElement.className = "contact__content error"; // Apply the error class
+  const small = parentElement.querySelector("small"); // Get the small element for displaying error message
+  small.innerText = inputError; // Set the error message
 }
 
 // Function to apply success class
 function showSuccess(input) {
-  const formGroup = input.parentElement; // Get the parent element of the input field
-  formGroup.className = "contact__content success"; // Apply the success class
+  const parentElement = input.parentElement; // Get the parent element of the input field
+  parentElement.className = "contact__content success"; // Apply the success class
 }
 
 // Function to validate email using regex
@@ -44,8 +44,8 @@ function checkRequired(inputArr) {
 
 // Function to reset input field to default state
 function setDefault(input) {
-  const formGroup = input.parentElement; // Get the parent element of the input field
-  formGroup.className = "contact__content"; // Reset the class name to default
+  const parentElement = input.parentElement; // Get the parent element of the input field
+  parentElement.className = "contact__content"; // Reset the class name to default
 }
 
 // Function to get the field name by capitalizing the first letter of the input id
