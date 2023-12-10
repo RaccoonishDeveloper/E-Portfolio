@@ -787,8 +787,8 @@ h1>span {
   border: none;
   border-bottom: 1px solid var(--big-text);
   outline: none;
-  resize:none;
 }
+
 
 .contact__content>*::placeholder {
   /* targets the placeholder text of all the child elements inside contact__content */
@@ -799,7 +799,9 @@ h1>span {
   text-transform: uppercase;
   /* makes all placeholder text uppercase */
 }
-
+#message{
+   resize:none;
+}
 
 
 .contact__content button {
