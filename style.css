@@ -787,7 +787,7 @@ h1>span {
   border: none;
   border-bottom: 1px solid var(--big-text);
   outline: none;
-   resize:none
+  resize:none;
 }
 
 .contact__content>*::placeholder {
